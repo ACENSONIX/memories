@@ -5,12 +5,12 @@ import mongoose from "mongoose";
 import postrouter from "./routes/posts.js";
 
 const app = express();
+app.use(cors());
 
 app.use("/posts", postrouter);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
 
 const CONNECTION_URL =
   "mongodb+srv://acensonix:fNxd4PWrWKdNocT4@cluster0.xhl0k.mongodb.net/?retryWrites=true&w=majority";
